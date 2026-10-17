@@ -255,13 +255,13 @@ footer{background:var(--brown);color:#E9DCC2;text-align:center;font-size:18px;pa
   <div class="wrap">
     <h2 data-t="rsvpTitle">Кэлэргитин биллэр</h2>
     <div class="divider" aria-hidden="true"><svg><use href="#horn"/></svg></div>
-    <p class="lead" data-t="rsvpLead">Аатыҥ-араспаанньаҕын суруй уонна талан.</p>
+    <p class="lead" data-t="rsvpLead">Ааткыҥ-араспаанньаҕын суруй уонна тал.</p>
 
     <form id="form" novalidate>
-      <label class="f" for="fn" data-t="lblFn">Ааккыт</label>
+      <label class="f" for="fn" data-t="lblFn">Аатыҥ</label>
       <input type="text" id="fn" name="firstName" autocomplete="given-name" required>
 
-      <label class="f" for="ln" data-t="lblLn">Араспаанньаҕыт</label>
+      <label class="f" for="ln" data-t="lblLn">Араспаанньаҥ</label>
       <input type="text" id="ln" name="lastName" autocomplete="family-name" required>
 
       <fieldset>
@@ -312,7 +312,7 @@ const T = {
   cdTitle:'Бырааһынньыкка диэри', lblD:'Хонук', lblH:'Чаас', lblM:'Мүнүүтэ', lblS:'Сөкүүндэ', cdDone:'Бырааһынньык саҕаланна!',
   fifty2:'50 сыл',
   rsvpTitle:'Кэлэргитин биллэр', rsvpLead:'Аатыҥ-араспаанньаҕын суруй уонна тал.',
-  lblFn:'Аата', lblLn:'Араспаанньата', lblAtt:'Кэлэҕин дуо?', yes:'Кэлэбин', no:'Кэлбэппин', send:'Эппиэт',
+  lblFn:'Аатыҥ', lblLn:'Араспаанньаҥ', lblAtt:'Кэлэҕин дуо?', yes:'Кэлэбин', no:'Кэлбэппин', send:'Эппиэт',
   thx1:'Улахан махтал!', thx2:'Эһигини күүтэбит.', warm:'Кэлиҥ — бииргэ үөрүөҕүҥ!'
 };
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t; if(T[k]) e.textContent=T[k];});
