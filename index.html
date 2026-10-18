@@ -167,6 +167,19 @@ legend{margin-bottom:16px}
 .wa .tx{font-size:23px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
 .finale{text-align:center;padding:90px 26px 120px}
 .finale .warm{font-size:clamp(46px,10vw,92px);font-style:italic;font-weight:600;line-height:1.1;margin-bottom:56px}
+
+/* ---- 50 на первом фото, второе фото с плавным краем ---- */
+.hero-photo{text-align:center;padding-bottom:70px}
+.hero h1{margin-bottom:10px}
+.hero .jub{margin-bottom:32px}
+.hero-photo .arch .badge{--bs:140px;bottom:calc(var(--bs)/-1.4);z-index:3}
+@media (max-width:600px){.hero-photo .arch .badge{--bs:120px}}
+.portrait-sec{padding-bottom:110px}
+.portrait-sec .frame{max-width:640px;padding:0;border:0;background:none;box-shadow:none}
+.portrait-sec .frame::after{display:none}
+.portrait-sec .frame img{-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%)}
+.portrait-sec .badge{--bs:100px;bottom:-40px;box-shadow:0 0 0 5px var(--bg),0 0 0 6.5px var(--line),0 10px 26px rgba(110,80,50,.12)}
+@media (max-width:600px){.portrait-sec .badge{--bs:88px}.portrait-sec{padding-bottom:90px}}
 </style>
 </head>
 <body>
@@ -177,14 +190,13 @@ legend{margin-bottom:16px}
     <div class="hero-photo">
       <div class="arch rv sc">
         <img src="1.PNG" alt="" width="900" height="1350" fetchpriority="high">
+        <div class="badge" aria-label="50 саас"><b>50</b><span data-t="year"></span></div>
       </div>
     </div>
     <div class="hero-text">
-  <h1 class="rv" style="--d:.4s" data-name></h1>
-  <p class="label rv" style="--d:.55s" data-t="kicker"></p>
-  <p class="age rv" style="--d:.65s"><span class="n"></span><span class="w"></span></p>
-  <p class="jub rv" style="--d:.7s" data-t="jub"></p>
-  <p class="motto rv" style="--d:.85s" data-t="motto"></p>
+      <p class="label rv" style="--d:.25s" data-t="kicker"></p>
+      <h1 class="rv" style="--d:.4s" data-name></h1>
+      <p class="jub rv" style="--d:.55s" data-t="jub"></p>
       <a class="btn rv" style="--d:1s" href="#invite"><span data-t="open"></span>
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v13M4.5 10.5 10 16l5.5-5.5"/></svg></a>
     </div>
@@ -206,10 +218,6 @@ legend{margin-bottom:16px}
       <p class="rv" style="--d:0.42s">Үрдүк үөрүүбүн үллэстэ</p>
       <p class="rv" style="--d:0.48s">Кэлиҥ, сылдьыҥ,</p>
       <p class="rv" style="--d:0.54s">Күндү ыалдьыт буолуҥ!</p>
-    </div>
-    <div class="sign rv" style="--d:.2s">
-      <div class="line"></div>
-      <p class="nm" data-name></p>
     </div>
   </div>
 </section>
@@ -259,7 +267,7 @@ legend{margin-bottom:16px}
   <div class="wrap">
     <div class="frame">
       <img class="wipe rv" src="2.PNG" alt="" width="1400" height="933" loading="lazy">
-      <div class="badge rv sc" style="--d:.5s" aria-label="50 саас"><b>50</b><span data-t="age"></span></div>
+      <div class="badge rv sc" style="--d:.5s" aria-label="50 саас"><b>50</b><span data-t="year"></span></div>
     </div>
   </div>
 </section>
@@ -314,7 +322,7 @@ legend{margin-bottom:16px}
 <script>
 /* ============ НАСТРОЙКИ ============ */
 const CFG = {
-  name: 'Сергей Сидорович',
+  name: 'Сивцев Сергей Сидорович',
   start: '2026-11-14T17:00:00+09:00',          // 14 ноября 2026, 17:00, Якутск (UTC+9)
   endpoint: 'https://script.google.com/macros/s/AKfycbz-9yn5JEUTKcVpSqum24C3wcShFLheBnX8T6EfPZnYWSYFqQbXx1z7YidzGB0MwGyCRQ/exec',
   whatsapp: 'https://wa.me/+79142277243'                   // ← сюда вставьте ссылку на WhatsApp, например https://wa.me/79140000000
@@ -322,14 +330,12 @@ const CFG = {
 
 /* Все тексты собраны здесь. Якутские тексты — черновики, их нужно проверить носителю языка. */
 const T = {
-  kicker: '50 сааһын туолар үөрүүлээх тэрээһиннэ ыҥырыы',
-  age: 'саас',
-  open: 'Салгыы',
+  kicker:'Ыҥырыы сурук', jub:'юбилея', year:'саас', open:'Салгыы',
   detTitle:'Тэрээһин туһунан',
   lblDate:'Буолар күнэ', dateYear:'2026 сыл', dateDay:'сэтинньи 14 күнэ',
   lblTime:'Буолар кэмэ', tGather:'мустуу', tStart:'саҕаланыыта',
   lblPlace:'Буолар сирэ', placeName:'Эстрада тыйаатыра', placeAddr:'Дьокуускай куорат,\nЛенин пр., 47', map:'картага көр',
-  cdTitle:'Саҕаланыар диэри:', lblD:'Күн', lblH:'Чаас', lblM:'Мүнүүтэ', lblS:'Сөкүүндэ', cdDone:'Бырааһынньык саҕаланна!',
+  cdTitle:'Буолуор диэри:', lblD:'Күн', lblH:'Чаас', lblM:'Мүнүүтэ', lblS:'Сөкүүндэ', cdDone:'Бырааһынньык саҕаланна!',
   rsvpTitle:'Ыалдьыт ыйытыга',
   rsvpLead:'Үөрүүлээх киэһэбит этэҥҥэ ааһарыгар ыйытыктарга эппиэттиэххит диэн эрэнэбит',
   rsvpLead2:'Бука диэн кэлэргитин биллэриҥ',
